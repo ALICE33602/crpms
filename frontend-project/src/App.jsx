@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import Layout from './components/Layout';
 
-import Login from './pages/Login';
+import LandingPage from './pages/LandingPage';
 import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
@@ -17,7 +17,7 @@ export default function App() {
   return (
     <Routes>
       {/* Public routes */}
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Navigate to="/" replace />} />
       <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password/:token" element={<ResetPassword />} />
@@ -72,9 +72,11 @@ export default function App() {
         }
       />
 
+      {/* Landing page */}
+      <Route path="/" element={<LandingPage />} />
+
       {/* Fallback */}
-      <Route path="/" element={<Navigate to="/dashboard" replace />} />
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }

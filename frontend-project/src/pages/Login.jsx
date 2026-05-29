@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
+import LandingSummary from '../components/LandingSummary';
 
 export default function Login() {
     const { login } = useAuth();
@@ -42,20 +43,22 @@ export default function Login() {
     };
 
     return (
-        <div className="min-h-screen bg-green-800 flex items-center justify-center px-4">
-            <div className="w-full max-w-md">
-                <div className="text-center mb-8">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-2xl shadow-lg mb-4">
-                        <svg className="w-10 h-10 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                        </svg>
+        <div className="min-h-screen bg-gradient-to-br from-green-800 via-green-700 to-green-900 flex items-center justify-center px-4">
+            <div className="flex items-stretch gap-10 w-full max-w-6xl">
+                {/* Login Form */}
+                <div className="w-[420px] flex-shrink-0">
+                    <div className="text-center mb-8">
+                        <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-2xl shadow-lg mb-4">
+                            <svg className="w-10 h-10 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                            </svg>
+                        </div>
+                        <h1 className="text-3xl font-bold text-white">SmartPark CRPMS</h1>
+                        <p className="text-green-200 text-sm mt-1">Car Repair Management System</p>
                     </div>
-                    <h1 className="text-3xl font-bold text-white">SmartPark CRPMS</h1>
-                    <p className="text-green-200 text-sm mt-1">Car Repair Management System</p>
-                </div>
 
-                <div className="bg-white rounded-2xl shadow-2xl p-8">
-                    <h2 className="text-xl font-bold text-green-900 mb-6">Sign in to your account</h2>
+                    <div className="bg-white rounded-2xl shadow-2xl p-8">
+                        <h2 className="text-xl font-bold text-green-900 mb-6">Sign in to your account</h2>
                     <form onSubmit={handleSubmit} noValidate className="space-y-5">
 
                         {/* Username */}
@@ -124,6 +127,12 @@ export default function Login() {
                             <Link to="/forgot-password" className="text-green-600 hover:text-green-800 hover:underline">Forgot password?</Link>
                         </p>
                     </div>
+                </div>
+                </div>
+
+                {/* Landing Summary */}
+                <div className="flex-1 min-w-0 flex">
+                    <LandingSummary />
                 </div>
             </div>
         </div>
